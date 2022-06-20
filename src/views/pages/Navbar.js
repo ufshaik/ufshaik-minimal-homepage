@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { VStack, Box, Container, Link, Heading } from '@chakra-ui/react';
+import { VStack, Box, Link, Heading} from '@chakra-ui/react';
 import { Link as ReachLink } from 'react-router-dom';
 
 
@@ -9,6 +9,30 @@ class Navbar extends Component {
     this.state = {
       displayName: 'Umar Shaik',
     };
+
+  }
+
+
+  decorateTextForLink = (name, route) => {
+    // Logics for active state and
+    let colorRanges = {
+      default : 'linkDefault',
+      hover : 'linkHover'
+    }
+
+     const { def, hov } = (this.props.location.pathname === route) ? { def: colorRanges.hover,
+       hov: colorRanges.default} : { def: colorRanges.default,
+       hov: colorRanges.hover};
+
+    return(
+      <Link _hover={{ color: hov }} color={def}
+             pr={5} as={ReachLink} fontWeight={600} _activeLink={true}
+             to={route}>
+          {name}
+      </Link>
+
+    )
+
   }
 
   render() {
@@ -18,18 +42,14 @@ class Navbar extends Component {
         align='stretch'
       >
         <Box h='40px'>
-          <Container>
             <Heading as={'h3'}>
               {this.props.name}
             </Heading>
-          </Container>
         </Box>
         <Box h='40px'>
-          <Container>
-            <Link _hover={{ color: 'gray.700' }} color={'gray.600'} pr={5} as={ReachLink} to={'/'}> Home </Link>
-            <Link _hover={{ color: 'gray.700' }} color={'gray.600'} pr={5} as={ReachLink} to={'/goose'}> Goose </Link>
-            <Link _hover={{ color: 'gray.700' }} color={'gray.600'} pr={5} as={ReachLink} to={'/posts'}> Posts </Link>
-          </Container>
+            {this.decorateTextForLink('Home', '/')}
+            {this.decorateTextForLink('Goose', '/goose')}
+            {this.decorateTextForLink('Posts', '/posts')}
         </Box>
       </VStack>
     );

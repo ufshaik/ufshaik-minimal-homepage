@@ -1,11 +1,15 @@
-import { Avatar, Box, HStack, SkeletonCircle } from '@chakra-ui/react';
+import { Avatar, Box, HStack, SkeletonCircle, Heading, Center} from '@chakra-ui/react';
 import React from 'react';
 import Navbar from '../pages/Navbar';
 
 
 const nameProfileSwitcher = {
-  'Umar Shaik' : 'https://drive.google.com/uc?export=view&id=1_gtwFmfpDaFKKYy7vDzj4j1AlOXpscp9',
-  'Goldengoose207' : 'https://drive.google.com/uc?export=view&id=1xOwjT49uIKOgNciSDcv5B34K2BVbpUO1'
+  'Umar Shaik' : '/Avatars/Umar.jpg',
+  'Goldengoose207' : '/Avatars/Goose.jpg'
+}
+
+const configs = {
+  spacing: 70
 }
 
 const Section = (props) => {
@@ -13,13 +17,12 @@ const Section = (props) => {
   let url = nameProfileSwitcher[name];
   return (
     <Box>
-      <HStack spacing='24px'>
+      <HStack spacing={configs.spacing}>
         <Box w='100px' h='100px' >
           <Avatar size={'xl'} src={url} icon={<SkeletonCircle size='100' />}/>
         </Box>
-
         <Box w='400px' h='100px'>
-          <Navbar name={name}/>
+          <Navbar name={name} {...props}/>
         </Box>
       </HStack>
     </Box>
@@ -27,15 +30,17 @@ const Section = (props) => {
 };
 
 
-const SubSection = () => {
+const SubSection = ({title, content}) => {
   return (
-    <Box>
-      <HStack spacing='24px'>
-        <Box w='100px' h='100px' bg='yellow.200'>
-          1
-        </Box>
-        <Box w='400px' h='100px' bg='tomato'>
-          2
+    <Box pt={10}>
+      <HStack spacing={configs.spacing}>
+        <Center w='100px'>
+          <Heading as='h4' size='md'>
+            {title}
+          </Heading>
+        </Center>
+        <Box w='800px' fontSize={'lg'}  align={"left"}>
+          {content}
         </Box>
       </HStack>
     </Box>
