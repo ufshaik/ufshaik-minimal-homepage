@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { VStack, Text, Center, Container } from '@chakra-ui/react';
+import { VStack, Text, Center, Container, Spacer } from '@chakra-ui/react';
 import { Section, SubSection } from '../components/Section';
 import { LinkIconBar } from '../components/LinkIconBar';
 import Emoji from '../components/Emoji';
@@ -69,6 +69,7 @@ class Home extends Component {
 
       <Section name={this.state.name} {...this.props }/>
       <SubSection title={this.title} content={this.content()}/>
+      <Spacer/>
 
     </VStack>
   }

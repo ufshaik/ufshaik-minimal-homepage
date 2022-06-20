@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { VStack,  Text, Image, Box,  Stack, Link, Center, Container } from '@chakra-ui/react';
+import { VStack, Text, Image, Box, Stack, Link, Center, Container, Spacer } from '@chakra-ui/react';
 import { Section, SubSection } from '../components/Section';
 import { LinkIconBar } from '../components/LinkIconBar';
 import { ExternalLinkIcon } from '@chakra-ui/icons'
@@ -107,6 +107,7 @@ class Goose extends Component {
       <SubSection title={this.title} content={this.content()}/>
       <SubSection title={this.titleGamerTag} content={this.contentGamerTag()}/>
       <SubSection title={this.titleCredit} content={this.contentCredit()}/>
+      <Spacer/>
 
     </VStack>
   }
