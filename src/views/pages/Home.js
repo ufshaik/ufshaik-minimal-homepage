@@ -3,6 +3,8 @@ import { VStack, Text, Center, Container, Spacer, useMediaQuery } from '@chakra-
 import { Section, SubSection } from '../components/Section';
 import { LinkIconBar } from '../components/LinkIconBar';
 import Emoji from '../components/Emoji';
+import { Link } from '@chakra-ui/react'
+import { ExternalLinkIcon } from '@chakra-ui/icons'
 
 const title = "About"
 
@@ -12,16 +14,18 @@ const content = () =>{
       Hey !
     </Text>
     <Text mt={3}>
-      I am a Sr Software Developer currently working at SkillsHawk (Creatros Technologies).
+      I am a Sr Software Developer at <Link href='https://www.dependbuild.com' isExternal>
+      dependbuild <ExternalLinkIcon mx='2px' />
+    </Link>
     </Text>
     <Text mt={3}>
-      Currently working on skill extraction using NLP and enhancing serverless cloud architecture.
+      Currently working on Information Retrieval and Risk Assessment using Dense Retrieval and Prediction while also setting up / enhancing our core product using serverless cloud architecture on AWS.
     </Text>
     <Text mt={3}>
-      I also teach kids and adult Immigrants on the weekends at Association for New Canadians and also work at Get Coding as an Instructor.
+      I also teach kids and adult immigrants Coding and Digital Literacy at Association for New Canadians.
     </Text>
     <Text mt={3}>
-      Previously I’ve worked for Metricsflow as a Software Developer, ex-mod at XDA.
+      Previously I worked on skill extraction using NLP and enhancing serverless cloud architecture for SkillsHawk, Coach at Get Coding, Software Developer at Metricsflow, Mod Developer at XDA.
     </Text>
     <Text mt={3}>
       From India <Emoji symbol={"🇮🇳"} label={"Indian Flag"}/>,
